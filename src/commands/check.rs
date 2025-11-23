@@ -8,7 +8,7 @@ pub fn run(file: &str, lint: bool, as_json: bool) -> Result<()> {
     println!("Checking {}...", file);
 
     let content =
-        fs::read_to_string(&file).map_err(|e| miette::miette!("Failed to read file: {}", e))?;
+        fs::read_to_string(file).map_err(|e| miette::miette!("Failed to read file: {}", e))?;
 
     let mut parser = Parser::new(&content)
         .map_err(|e| miette::miette!("Parser initialization failed: {:?}", e))?;
@@ -33,11 +33,11 @@ pub fn run(file: &str, lint: bool, as_json: bool) -> Result<()> {
             // Human-readable output
             if !lint_result.has_issues() {
                 println!("{}  {}", "Linting".green().bold(), file);
-                println!("");
+                println!();
                 println!("  {} No issues found", "✓".green().bold());
             } else {
                 println!("{}  {}", "Linting".green().bold(), file);
-                println!("");
+                println!();
 
                 let errors = lint_result.errors();
                 let warnings = lint_result.warnings();
@@ -70,7 +70,7 @@ pub fn run(file: &str, lint: bool, as_json: bool) -> Result<()> {
                     );
                 }
 
-                println!("");
+                println!();
                 println!(
                     "{}: {} errors, {} warnings, {} hints",
                     "Summary".bold(),
@@ -80,13 +80,13 @@ pub fn run(file: &str, lint: bool, as_json: bool) -> Result<()> {
                 );
 
                 if !errors.is_empty() || !warnings.is_empty() {
-                    println!("");
+                    println!();
                     println!(
                         "{}",
-                        format!("Run 'mon check --explain <CODE>' for detailed information")
+                        "Run 'mon check --explain <CODE>' for detailed information".to_string()
                             .dimmed()
                     );
-                    println!("{}", format!("Configure rules in .monlint.mon").dimmed());
+                    println!("{}", "Configure rules in .monlint.mon".to_string().dimmed());
                 }
 
                 if !errors.is_empty() {

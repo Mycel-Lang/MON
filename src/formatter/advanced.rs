@@ -91,7 +91,7 @@ pub fn calculate_comment_alignment(lines: &[(String, Option<String>)]) -> usize 
     }
 
     // Round up to nearest multiple of 4, add some padding
-    let aligned = ((max_content_len + 3) / 4) * 4 + 4;
+    let aligned = max_content_len.div_ceil(4) * 4 + 4;
 
     // Cap at reasonable maximum
     aligned.min(80)

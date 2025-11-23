@@ -41,7 +41,7 @@ impl WatchMode {
             }
         }
 
-        println!("{}", format!("Press Ctrl+C to stop").dimmed());
+        println!("{}", "Press Ctrl+C to stop".to_string().dimmed());
 
         // Debounce map to avoid formatting the same file multiple times in quick succession
         let mut last_format: std::collections::HashMap<PathBuf, std::time::Instant> =
@@ -53,17 +53,16 @@ impl WatchMode {
                 Ok(event) => {
                     if let EventKind::Modify(ModifyKind::Data(_)) = event.kind {
                         for path in event.paths {
-                            if !path.extension().map_or(false, |e| e == "mon") {
+                            if !path.extension().is_some_and(|e| e == "mon") {
                                 continue;
                             }
 
                             // Debounce
                             let now = std::time::Instant::now();
-                            if let Some(last) = last_format.get(&path) {
-                                if now.duration_since(*last) < debounce_duration {
+                            if let Some(last) = last_format.get(&path)
+                                && now.duration_since(*last) < debounce_duration {
                                     continue;
                                 }
-                            }
                             last_format.insert(path.clone(), now);
 
                             // Format the file

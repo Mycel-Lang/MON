@@ -138,7 +138,7 @@ impl SmellDetector {
 
             for member in members {
                 if let Member::Pair(pair) = member {
-                    if let Some(_) = seen_keys.insert(pair.key.clone(), ()) {
+                    if seen_keys.insert(pair.key.clone(), ()).is_some() {
                         result.add_diagnostic(
                             DiagnosticCode::DuplicateKey,
                             format!("Duplicate key '{}' in object", pair.key),

@@ -99,12 +99,11 @@ impl Formatter {
 
             // Check for comments after this import
             let import_line = i + current_line;
-            if let Some(comment) = comment_map.get(&import_line) {
-                if comment.is_trailing {
+            if let Some(comment) = comment_map.get(&import_line)
+                && comment.is_trailing {
                     output.push_str("  ");
                     output.push_str(&comment.text);
                 }
-            }
         }
 
         if !doc.imports.is_empty() {
@@ -155,7 +154,7 @@ impl Formatter {
                 // Check if it's not inside a string
                 if !is_inside_string(line, comment_start) {
                     let comment_text = line[comment_start..].trim().to_string();
-                    let is_trailing = comment_start > 0 && line[..comment_start].trim().len() > 0;
+                    let is_trailing = comment_start > 0 && !line[..comment_start].trim().is_empty();
 
                     comments.push(Comment {
                         line: line_num,

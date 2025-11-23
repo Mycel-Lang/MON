@@ -149,7 +149,7 @@ impl SymbolTable {
     /// Adds a symbol reference to the table.
     pub fn add_reference(&mut self, reference: SymbolReference) {
         let key = (reference.symbol_name.clone(), reference.symbol_kind);
-        self.references.entry(key).or_insert_with(Vec::new).push(reference);
+        self.references.entry(key).or_default().push(reference);
     }
 
     /// Finds a symbol definition by name and kind.
@@ -211,7 +211,7 @@ impl SymbolTable {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::linter::Position;
+    use crate::linter::position::Position;
 
     #[test]
     fn test_symbol_table_basic() {

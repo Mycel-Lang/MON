@@ -182,8 +182,8 @@ fn count_nulls(value: &mon_core::serialization::Value) -> usize {
 
     match value {
         Value::Null => 1,
-        Value::Object(map) => map.values().map(|v| count_nulls(v)).sum(),
-        Value::Array(arr) => arr.iter().map(|v| count_nulls(v)).sum(),
+        Value::Object(map) => map.values().map(count_nulls).sum(),
+        Value::Array(arr) => arr.iter().map(count_nulls).sum(),
         _ => 0,
     }
 }
@@ -316,12 +316,10 @@ fn create_readme(base_name: &str, input_file: &str, has_docs: bool, null_count: 
     );
 
     if has_docs {
-        content.push_str(&format!(
-            "└── docs/\n\
+        content.push_str(&"└── docs/\n\
             ├── structure.md     # Data structure documentation\n\
             └── stats.json       # Statistics and metadata\n\
-            ```\n\n"
-        ));
+            ```\n\n".to_string());
     } else {
         content.push_str("```\n\n");
     }

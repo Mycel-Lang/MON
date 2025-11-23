@@ -79,8 +79,8 @@ fn build_simple_import_graph(
             .imports
             .iter()
             .map(|imp| {
-                let import_path = base_dir.join(&imp.path);
-                import_path
+                
+                base_dir.join(&imp.path)
             })
             .collect();
 
@@ -101,11 +101,10 @@ fn detect_cycle(graph: &HashMap<PathBuf, Vec<PathBuf>>) -> Option<Vec<String>> {
     let mut rec_stack = Vec::new();
 
     for node in graph.keys() {
-        if !visited.contains(node) {
-            if let Some(cycle) = dfs_cycle(node, graph, &mut visited, &mut rec_stack) {
+        if !visited.contains(node)
+            && let Some(cycle) = dfs_cycle(node, graph, &mut visited, &mut rec_stack) {
                 return Some(cycle);
             }
-        }
     }
 
     None
