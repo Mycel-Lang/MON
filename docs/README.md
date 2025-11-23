@@ -85,12 +85,12 @@ Language Server Protocol integration for IDE features (planned).
 
 Internal development docs have been moved to [`docs/dev/`](./dev/):
 
-- [Comprehensive Export](./dev/COMPREHENSIVE_EXPORT.md) - Export feature documentation
-- [Formatter Enhancements](./dev/FORMATTER_ENHANCEMENTS.md) - Formatter improvements
-- [Formatter Fixes](./dev/FORMATTER_FIXES.md) - Formatter bug fixes
-- [Format Limitations](./dev/FORMAT_LIMITATIONS.md) - Known formatting limitations
-- [MON Core API Analysis](./dev/MON_CORE_API_ANALYSIS.md) - Core library API details
-- [MON Language Reference](./dev/MON_LANGUAGE_REFERENCE.md) - Language specification
+- [Comprehensive Export](./dev/comprehensive-export.md) - Export feature documentation
+- [Formatter Enhancements](./dev/formatter-enhancements.md) - Formatter improvements
+- [Formatter Fixes](./dev/formatter-fixes.md) - Formatter bug fixes
+- [Format Limitations](./dev/format-limitations.md) - Known formatting limitations
+- [MON Core API Analysis](./dev/mon-core-api-analysis.md) - Core library API details
+- [MON Language Reference](./dev/mon-language-reference.md) - Language specification
 - [API Specification](./dev/tempfile.md) - Complete CLI API spec
 
 ## Getting Help

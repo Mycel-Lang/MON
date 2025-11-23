@@ -4,7 +4,7 @@
 //! and imports in a MON document along with their source locations. This enables
 //! LSP features like go-to-definition, find references, and hover information.
 
-use crate::linter::position::{Location, Range};
+use crate::linter::position::Range;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 

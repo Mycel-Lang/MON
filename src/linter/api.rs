@@ -5,12 +5,11 @@
 //! suitable for both CLI and LSP use.
 
 use crate::linter::{
-    LintConfig, LintResult, Linter, Position, Range, ReferenceKind, Symbol, SymbolKind,
+    LintConfig, LintResult, Linter, Range, ReferenceKind, Symbol, SymbolKind,
     SymbolReference, SymbolTable,
 };
 use miette::Result;
 use mon_core::ast::{Member, MonDocument, MonValue, MonValueKind};
-use std::path::PathBuf;
 
 /// Analysis service for comprehensive MON document analysis.
 ///

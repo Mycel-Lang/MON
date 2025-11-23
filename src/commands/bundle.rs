@@ -173,7 +173,7 @@ fn format_as_mon(doc: &MonDocument, _minify: bool) -> Result<String> {
 
 fn format_as_json(doc: &MonDocument) -> Result<String> {
     // Use mon-core's AnalysisResult for serialization
-    use mon_core::api::analyze;
+    
 
     // We need to re-analyze the document to get proper serialization
     // This is a workaround since to_value is pub(crate)

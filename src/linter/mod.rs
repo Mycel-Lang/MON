@@ -12,12 +12,10 @@ pub mod symbol_table;
 #[cfg(test)]
 mod tests;
 
-pub use api::{AnalysisResult, AnalysisService};
 pub use complexity::ComplexityAnalyzer;
 pub use diagnostic::{DiagnosticCode, DiagnosticSeverity};
 pub use imports::ImportAnalyzer;
-pub use position::{DiagnosticTag, Location, Position, Range, RelatedInformation};
-pub use rules::LintRule;
+pub use position::{DiagnosticTag, Range, RelatedInformation};
 pub use smells::SmellDetector;
 pub use symbol_table::{ReferenceKind, Symbol, SymbolKind, SymbolReference, SymbolTable};
 
@@ -220,14 +218,14 @@ impl Default for LintConfig {
 
 impl LintConfig {
     /// Create a config that only runs specified rules
-    pub fn with_only_rules(mut self, _rules: Vec<String>) -> Self {
+    pub fn with_only_rules(self, _rules: Vec<String>) -> Self {
         // TODO: Implement rule filtering
         // For MVP, just return self
         self
     }
 
     /// Create a config that disables specified rules
-    pub fn without_rules(mut self, _rules: Vec<String>) -> Self {
+    pub fn without_rules(self, _rules: Vec<String>) -> Self {
         // TODO: Implement rule filtering
         // For MVP, just return self
         self

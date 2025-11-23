@@ -23,6 +23,12 @@ MON is **dual-licensed**:
 - **AGPL** for the FOSS community (always free and open)
 - **Commercial licenses** for companies that can't use AGPL
 
+All external contributions must agree to our [Contributor License Agreement (CLA)](contributor-license-agreement.md). This is a simple process—just comment on your first PR:
+
+```
+I have read and agree to the CLA
+```
+
 The CLA lets us do both **without** locking contributors out or selling your code. It's the same model used by Rust, Apache, and other major FOSS projects.
 
 **You retain full ownership of your contributions.**

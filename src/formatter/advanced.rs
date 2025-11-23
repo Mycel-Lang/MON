@@ -1,6 +1,6 @@
 // Advanced formatter features
 
-use crate::formatter::config::{FormatConfig, KeySortStyle};
+use crate::formatter::config::KeySortStyle;
 use mon_core::ast::Member;
 
 /// Sort object members according to configured style

@@ -1,8 +1,8 @@
 // Import analysis for MON files
 
 use crate::linter::{LintConfig, LintResult, diagnostic::DiagnosticCode};
-use mon_core::ast::{ImportSpec, Member, MonValue, MonValueKind};
-use std::collections::{HashMap, HashSet};
+use mon_core::ast::{Member, MonValue, MonValueKind};
+use std::collections::HashSet;
 
 pub struct ImportAnalyzer {
     config: LintConfig,
