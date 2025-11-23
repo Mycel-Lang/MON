@@ -1,0 +1,43 @@
+{
+    /// Formatter configuration for MON files
+    ///
+    /// Controls code formatting style and behavior.
+    /// Import with: `import { FormatConfig } from "mon:types/formatter"`
+    FormatConfig: #struct {
+        /// Indentation size in spaces (2, 4, or 8; default: 4)
+        indent_size(Number) = 4,
+        
+        /// Maximum line width (40-120, default: 80)
+        line_width(Number) = 80,
+        
+        /// Use trailing commas in arrays and objects (default: true)
+        trailing_comma(Boolean) = true,
+        
+        /// Quote style for strings
+        /// Options: "double", "single", "preserve"
+        quote_style(String) = "double",
+        
+        /// Align trailing comments to a specific column (default: false)
+        align_trailing_comments(Boolean) = false,
+        
+        /// Column to align comments at (1-120, default: 40)
+        comment_alignment_column(Number) = 40,
+        
+        /// Sort object keys
+        /// Options: "none", "alpha", "length"
+        sort_keys(String) = "none",
+        
+        /// Add blank lines between top-level members (default: false)
+        blank_lines_between_members(Boolean) = false,
+        
+        /// Preserve hand-written formatting where possible (default: false)
+        preserve_hand_formatting(Boolean) = false,
+    },
+    
+    /// Key sorting options for formatter
+    KeySortStyle: #enum {
+        None,
+        Alpha,
+        Length,
+    }
+}

@@ -1,0 +1,15 @@
+// Example: Using builtin formatter schema
+import { FormatConfig } from "mon:types/formatter"
+
+{
+    // Prettier-style formatting
+    config :: FormatConfig = {
+        indent_size: 2,
+        line_width: 100,
+        trailing_comma: true,
+        quote_style: "double",
+        sort_keys: "alpha",
+        align_trailing_comments: true,
+        comment_alignment_column: 60,
+    }
+}

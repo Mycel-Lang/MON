@@ -1,0 +1,34 @@
+import { LintConfig } from "mon:types/linter"
+import { FormatConfig } from "mon:types/formatter"
+
+{
+    linter :: LintConfig = {
+        // Strict configuration for production code
+        
+        max_nesting_depth: 3,
+        max_object_members: 15,
+        max_array_elements: 30,
+        
+        warn_unused_anchors: true,
+        warn_magic_numbers: true,
+        warn_empty_structures: true,
+        max_spreads: 2,
+        
+        suggest_type_validation: true,
+        enforce_consistent_naming: true,
+        max_import_chain_depth: 3,
+    },
+    
+    formatter :: FormatConfig = {
+        // Strict formatter: Consistent, professional style
+        
+        indent_size: 2,
+        line_width: 80,
+        trailing_comma: true,
+        quote_style: "double",
+        
+        align_trailing_comments: true,
+        comment_alignment_column: 40,
+        sort_keys: "alpha",
+    },
+}

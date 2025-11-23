@@ -1,0 +1,189 @@
+// Comprehensive MON test file exercising all language features
+import * as types from "./golden_base.mon"
+import { &base_credentials, Component } from "./nightmare_base.mon"
+
+{
+    // === TYPE DEFINITIONS ===
+    
+    Status: #enum {
+        Pending,
+        Running,
+        Completed,
+        Failed,
+    },
+    
+    Priority: #enum {
+        Low,
+        Medium,
+        High,
+        Critical,
+    },
+    
+    User: #struct {
+        id(Number),
+        name(String),
+        email(String) = null,
+        active(Boolean) = true,
+    },
+    
+    Task: #struct {
+        id(Number),
+        title(String),
+        status(Status),
+        priority(Priority) = $Priority.Medium,
+        assigned_to(User) = null,
+        tags([String...]) = [],
+        metadata([String, Number]),
+    },
+    
+    // === ANCHORS ===
+    
+    &default_user: {
+        id: 1,
+        name: "Default User",
+        email: null,
+        active: true,
+    },
+    
+    &admin_permissions: [
+        "read",
+        "write",
+        "delete",
+        "admin",
+    ],
+    
+    &base_config: {
+        timeout: 30,
+        retries: 3,
+        verbose: false,
+    },
+    
+    // === DATA WITH VALIDATION ===
+    
+    alice :: User = {
+        id: 100,
+        name: "Alice",
+        email: "alice@example.com",
+        active: true,
+    },
+    
+    bob :: User = {
+        id: 101,
+        name: "Bob",
+    },
+    
+    critical_task :: Task = {
+        id: 1,
+        title: "Fix critical bug",
+        status: $Status.Running,
+        priority: $Priority.Critical,
+        assigned_to: {
+            id: 100,
+            name: "Alice",
+            email: "alice@example.com",
+        },
+        tags: ["urgent", "bug", "production"],
+        metadata: ["version", 2],
+    },
+    
+    // === ALIASES AND COMPOSITION ===
+    
+    admin_user: {
+        ...*default_user,
+        name: "Admin",
+        email: "admin@example.com",
+    },
+    
+    extended_config: {
+        ...*base_config,
+        timeout: 60,  // Override
+        debug_mode: true,
+    },
+    
+    user_alias: *alice,
+    
+    permissions: [
+        "login",
+        ...*admin_permissions,
+        "super_admin",
+    ],
+    
+    // === SPREADS ===
+    
+    &tag_list: ["tag1", "tag2", "tag3"],
+    
+    all_tags: [
+        ...*tag_list,
+        "tag4",
+    ],
+    
+    // === NESTED STRUCTURES ===
+    
+    complex_nested: {
+        level1: {
+            level2: {
+                level3: {
+                    deep_value: "nested",
+                    deep_array: [1, 2, 3],
+                },
+            },
+        },
+        arrays_of_objects: [
+            { a: 1, b: 2 },
+            { a: 3, b: 4 },
+            { a: 5, b: 6 },
+        ],
+        objects_in_arrays: {
+            data: [
+                [1, 2, 3],
+                [4,5, 6],
+                [7, 8, 9],
+            ],
+        },
+    },
+    
+    // === EDGE CASES ===
+    
+    empty_object: {},
+    empty_array: [],
+    empty_string: "",
+    
+    null_value: null,
+    
+    boolean_values: {
+        true_val: true,
+        false_val: false,
+        on_val: on,
+        off_val: off,
+    },
+    
+    numbers: {
+        integer: 42,
+        negative: -100,
+        float: 3.14159,
+        negative_float: -2.71828,
+        zero: 0,
+    },
+    
+    quoted_keys: {
+        "key with spaces": "value",
+        "key-with-hyphens": "value",
+        "key.with.dots": "value",
+        "key/with/slashes": "value",
+    },
+    
+    escaped_strings: {
+        quotes: "Hello \"world\"",
+        backslash: "path\\to\\file",
+        newline: "line1\nline2",
+    },
+    
+    // === TRAILING COMMAS ===
+    
+    with_trailing: {
+        a: 1,
+        b: 2,
+    },
+    
+    array_trailing: [1, 2, 3,],
+}

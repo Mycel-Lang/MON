@@ -1,0 +1,36 @@
+GNU AFFERO GENERAL PUBLIC LICENSE
+Version 3, 19 November 2007
+
+Copyright (C) 2024 MON Project Contributors
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+
+[The complete AGPLv3 license text would go here - https://www.gnu.org/licenses/agpl-3.0.txt]
+
+---
+
+ADDITIONAL LICENSING INFORMATION
+
+This software is licensed under the GNU Affero General Public License v3.0 (AGPLv3).
+
+EXCEPTION FOR OPEN-SOURCE FORKS
+
+In addition to the rights granted by the AGPLv3, the copyright holders grant permission to use this software in applications that would otherwise be proprietary, PROVIDED THAT:
+
+1. The application is an openly licensed fork of this software, AND
+2. The complete source code of that application is publicly accessible (visible within one click from a publicly available link), AND
+3. The application is distributed under an OSI-approved open-source license.
+
+Applications meeting these criteria may use this software without being required to release their own source code under AGPLv3, but must still:
+- Retain all copyright notices
+- Credit the original MON project
+- Make their fork's source code publicly available
+
+COMMERCIAL LICENSING
+
+For commercial use that does not comply with the AGPLv3 or the open-source fork exception above, a separate commercial license is available. Please contact the project maintainers for more information.
+
+---
+
+This dual-licensing model protects against proprietary SaaS hijacking while enabling legitimate open-source development and commercial partnerships.

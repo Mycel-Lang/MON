@@ -1,0 +1,51 @@
+{
+    /// Linter configuration for MON files
+    ///
+    /// Controls all linting rules and their severity levels.
+    /// Import with: `import { LintConfig } from "mon:types/linter"`
+    LintConfig: #struct {
+        /// Maximum nesting depth (3-10, default: 5)
+        /// Controls LINT1001: Deep nesting warning
+        max_nesting_depth(Number) = 5,
+        
+        /// Maximum object members (5-100, default: 20)
+        /// Controls LINT1002: Large object warning
+        max_object_members(Number) = 20,
+        
+        /// Maximum array elements (5-200, default: 50)
+        /// Controls LINT1003: Large array warning
+        max_array_elements(Number) = 50,
+        
+        /// Warn about unused anchors (default: true)
+        /// Controls LINT2001: Unused anchor detection
+        warn_unused_anchors(Boolean) = true,
+        
+        /// Warn about magic numbers (default: false)
+        /// Controls LINT2002: Magic number detection
+        warn_magic_numbers(Boolean) = false,
+        
+        /// Maximum spread operations (1-10, default: 3)
+        /// Controls LINT2004: Excessive spreads
+        max_spreads(Number) = 3,
+        
+        /// Suggest type validation (default: true)
+        /// Controls LINT3001: Missing type validation
+        suggest_type_validation(Boolean) = true,
+        
+        /// Warn about empty structures (default: true)
+        /// Controls LINT3002: Empty structures
+        warn_empty_structures(Boolean) = true,
+        
+        /// Enforce consistent naming (default: false)
+        /// Controls LINT3003: Inconsistent naming
+        enforce_consistent_naming(Boolean) = false,
+        
+        /// Maximum import chain depth (2-10, default: 5)
+        /// Controls LINT4001: Deep import chains
+        max_import_depth(Number) = 5,
+        
+        /// Disabled rule codes (default: empty array)
+        /// List of diagnostic codes to disable, e.g. ["LINT1001", "LINT2002"]
+        disabled_rules([String...]) = [],
+    }
+}

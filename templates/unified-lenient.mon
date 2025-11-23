@@ -1,0 +1,34 @@
+import { LintConfig } from "mon:types/linter"
+import { FormatConfig } from "mon:types/formatter"
+
+{
+    linter :: LintConfig = {
+        // Lenient configuration for prototyping
+        
+        max_nesting_depth: 7,
+        max_object_members: 30,
+        max_array_elements: 100,
+        
+        warn_unused_anchors: false,
+        warn_magic_numbers: false,
+        warn_empty_structures: false,
+        max_spreads: 5,
+        
+        suggest_type_validation: false,
+        enforce_consistent_naming: false,
+        max_import_chain_depth: 7,
+    },
+    
+    formatter :: FormatConfig = {
+        // Lenient formatter: Minimal formatting
+        
+        indent_size: 4,
+        line_width: 120,
+        trailing_comma: false,
+        quote_style: "preserve",
+        
+        align_trailing_comments: false,
+        comment_alignment_column: 60,
+        sort_keys: "none",
+    },
+}

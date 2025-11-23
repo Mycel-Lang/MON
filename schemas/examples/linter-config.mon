@@ -1,0 +1,14 @@
+// Example: Using builtin linter schema
+import { LintConfig } from "mon:types/linter"
+
+{
+    // Strict linting for production code
+    config :: LintConfig = {
+        max_nesting_depth: 3,
+        max_object_members: 15,
+        warn_unused_anchors: true,
+        warn_empty_structures: true,
+        enforce_consistent_naming: true,
+        disabled_rules: ["LINT2002"], // Allow magic numbers
+    }
+}
